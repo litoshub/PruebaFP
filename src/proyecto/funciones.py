@@ -21,13 +21,24 @@ def producto_geometrico(a1, r, k):
     return producto_a1 * producto_r
 print(producto_geometrico(3, 5, 2))
 
+#metodo 2 mas facil
+def producto_secuencia_geometrica(a1, r, k):
+    producto = 1  # Inicializamos el producto en 1, ya que es el neutro multiplicativo
+    for n in range(1, k+1):  # Iteramos desde el término 1 hasta el término k
+        an = a1 * (r ** (n - 1))  # Calculamos el término a_n de la secuencia
+        producto *= an  # Multiplicamos el término actual por el producto acumulado
+    return producto
+print(producto_secuencia_geometrica(3,5,2))
+
 #ejercicio 3
 import math
 
 def combinatorio(n, k):
     if k > n:
         return 0
-    return math.factorial(n) // (math.factorial(k) * math.factorial(n - k))
+    else:
+        res = math.factorial(n) // (math.factorial(k) * math.factorial(n - k))
+    return res
 print(combinatorio(4, 2))
 
 #ejercicio 4
@@ -69,13 +80,13 @@ def newton(f, df, x0, epsilon, max_iter=1000):
         
         
         if dfx == 0:
-            raise ValueError("La derivada es cero, no se puede continuar el método.")
+            return ValueError("La derivada es cero, no se puede continuar el método.")
         
         
         x = x - fx / dfx
     
    
-    raise ValueError("El método de Newton no ha convergido después del número máximo de iteraciones.")
+    return ValueError("El método de Newton no ha convergido después del número máximo de iteraciones.")
 def f(x):
     return 2*x**2
 def df(x):
