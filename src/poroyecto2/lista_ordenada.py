@@ -28,7 +28,7 @@ class ListaOrdenada(agrgado_lineal[E]):
             raise IndexError("No se puede eliminar de una lista vacía.")
         return self._elements.pop(0)
     
-lista = ListaOrdenada.of(lambda x: x)
+
 
 
 
