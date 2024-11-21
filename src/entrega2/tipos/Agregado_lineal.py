@@ -26,7 +26,7 @@ class AgregadoLineal(ABC, Generic[E]):
 
     @abstractmethod
     def add(self, e: E) -> None:
-        pass
+         self._elements.append(e)
 
     def add_all(self, ls: List[E]) -> None:
         for item in ls:
