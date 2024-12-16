@@ -9,4 +9,16 @@
 	<natures>
 		<nature>org.python.pydev.pythonNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/entrega3/relaciones.txt</name>
+			<type>1</type>
+			<location>C:/Users/carlo/Downloads/relaciones.txt</location>
+		</link>
+		<link>
+			<name>src/entrega3/usuarios.txt</name>
+			<type>1</type>
+			<location>C:/Users/carlo/Downloads/usuarios.txt</location>
+		</link>
+	</linkedResources>
 </projectDescription>
