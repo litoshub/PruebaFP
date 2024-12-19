@@ -59,17 +59,19 @@ class Recorrido(ABC, Generic[V, E]):
     def traverse(self, source: V) -> None:
         pass
 
+# ... (mantener todas las importaciones y código anterior igual)
+
 def bfs(grafo: Grafo[V, E], inicio: V, destino: V) -> List[V]:
     """
     Realiza un recorrido en anchura (BFS) desde un vértice inicial hasta un vértice destino.
     """
     visitados = set()
     cola = Cola()
-    cola.encolar(inicio)
+    cola.add(inicio)
     predecesores = {inicio: None}
 
-    while not cola.esta_vacia():
-        vertice = cola.desencolar()
+    while not cola.is_empty:  # Cambiado: is_empty es una propiedad, no un método
+        vertice = cola.remove()  # Cambiado: usamos remove() en lugar de desencolar()
 
         if vertice == destino:
             break
@@ -79,8 +81,12 @@ def bfs(grafo: Grafo[V, E], inicio: V, destino: V) -> List[V]:
 
             for vecino in grafo.successors(vertice):
                 if vecino not in visitados:
-                    cola.encolar(vecino)
+                    cola.add(vecino)
                     predecesores[vecino] = vertice
+
+    return reconstruir_camino(predecesores, destino)
+
+# ... (mantener el resto del código igual)
 
     return reconstruir_camino(predecesores, destino)
 
